@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instituto Dionisio de Herrera</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Instituto Dionisio de Herrera - Formamos líderes con valores y compromiso. Educación integral, atención personalizada y crecimiento humano.">
+  <meta name="keywords" content="Instituto, Educación, Honduras, Bachillerato, Secundaria, Valores, Colegio">
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- AOS (animaciones al hacer scroll) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #5c0a0a, #a82a2a, #1c1c1c);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(0,0,0,0.85);
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease, background 0.3s;
+    }
+
+    header.hide {
+      transform: translateY(-100%);
+    }
+
+    header img {
+      max-height: 55px;
+      margin-right: 12px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.3em;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: color 0.3s, transform 0.2s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd6d6;
+      transform: scale(1.05);
+    }
+
+    nav ul li a.active {
+      color: #ffaaaa;
+      border-bottom: 2px solid #ffaaaa;
+      padding-bottom: 3px;
+    }
+
+    /* CARRUSEL */
+    .swiper {
+      width: 100%;
+      height: 500px;
+    }
+
+    .swiper-slide {
+      position: relative;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.2em;
+      color: #fff;
+      text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+      font-weight: bold;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      padding: 18px 28px;
+      border-radius: 15px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -40%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* PRESENTACIÓN */
+    .presentation {
+      background-color: rgba(255,255,255,0.95);
+      color: #333;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+      margin: 40px auto;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    }
+
+    .presentation img {
+      max-width: 320px;
+      margin-right: 30px;
+      border-radius: 15px;
+    }
+
+    .presentation div {
+      max-width: 600px;
+    }
+
+    .presentation h2 {
+      color: #a00000;
+      margin-bottom: 15px;
+    }
+
+    .presentation p {
+      margin-bottom: 15px;
+      font-size: 1.05em;
+    }
+
+    /* SERVICIOS */
+    .services {
+      padding: 60px 20px;
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 30px;
+      color: #a00000;
+      margin-bottom: 45px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .icon {
+      font-size: 45px;
+      color: #a00000;
+      margin-bottom: 15px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .service-card:hover .icon {
+      color: #ff4444;
+      transform: scale(1.2);
+    }
+
+    .service-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    /* JUNTA DIRECTIVA */
+    .directiva {
+      padding: 60px 20px;
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      text-align: center;
+    }
+
+    .directiva h2 {
+      font-size: 30px;
+      color: #a00000;
+      margin-bottom: 45px;
+    }
+
+    .directiva-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .miembro {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .miembro:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .miembro img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .miembro h3 {
+      margin-bottom: 5px;
+      font-size: 1.1em;
+      color: #a00000;
+    }
+
+    .miembro p {
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: rgba(0,0,0,0.9);
+      color: #fff;
+      font-size: 0.95em;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 8px;
+      transition: color 0.3s;
+      font-size: 1.2em;
+    }
+
+    footer a:hover {
+      color: #ff8888;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .presentation {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .presentation img {
+        margin: 0 0 20px 0;
+        max-width: 100%;
+      }
+
+      .swiper {
+        height: 300px;
+      }
+
+      .banner-text {
+        font-size: 1.4em;
+        padding: 12px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="mainHeader">
+    <div style="display: flex; align-items: center;">
+      <img src="Logo.png" alt="Logo del instituto" />
+      <h1>Instituto Dionisio de Herrera</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="Historia.html">Nuestra Historia</a></li>
+        <li><a href="Actividades.html">Actividades</a></li>
+        <li><a href="perfiles.html">Carreras</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CARRUSEL -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="slide2.jpg" alt="Slide 1" />
+        <div class="banner-text">La mejor educación para tu futuro</div>
+      </div>
+      <div class="swiper-slide">
+        <img src="Instituto.jpg" alt="Slide 2" />
+        <div class="banner-text">Formamos líderes con valores</div>
+      </div>
+      <div class="swiper-slide">
+        <img src="slide3.jpg" alt="Slide 3" />
+        <div class="banner-text">Un lugar donde crecer y aprender</div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <!-- PRESENTACIÓN -->
+  <section class="presentation" data-aos="fade-up">
+    <img src="presentacion.jpg" alt="imagen presentación" />
+    <div>
+      <h2>¡Bienvenidos!</h2>
+      <p>
+        En el Instituto Dionisio de Herrera creemos que la educación es más que aprender materias: 
+        es crecer como persona, descubrir talentos y construir un futuro lleno de oportunidades.
+      </p>
+      <p>
+        Nos inspira el legado de Dionisio de Herrera, un líder visionario en la historia de Honduras. 
+        Por eso ofrecemos un ambiente cálido, cercano y con un compromiso profundo por el aprendizaje integral.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="services" data-aos="fade-up">
+    <h2>Nuestros Servicios</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-user-graduate"></i></div>
+        <h3>Atención Personalizada</h3>
+        <p>Acompañamos cada paso del estudiante, no solo en lo académico, sino también en lo humano y emocional.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h3>Departamento de Psicología</h3>
+        <p>Brindamos apoyo a estudiantes, familias y a toda nuestra comunidad educativa para crecer juntos.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-desktop"></i></div>
+        <h3>Plataforma Virtual</h3>
+        <p>Una herramienta moderna que conecta a estudiantes, padres y maestros de manera práctica y sencilla.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-book"></i></div>
+        <h3>Programa de Valores</h3>
+        <p>Transmitimos valores que forman personas responsables, solidarias y comprometidas.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <h3>Aulas de Vanguardia</h3>
+        <p>Salones cómodos y equipados que motivan a aprender con entusiasmo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUNTA DIRECTIVA -->
+  <section class="directiva" data-aos="fade-up">
+    <h2>Nuestra Junta Directiva</h2>
+    <div class="directiva-grid">
+      <div class="miembro">
+        <img src="m.jpg" alt="Michell Ortega">
+        <h3>Directora</h3>
+        <p>Michelle Ortega</p>
+      </div>
+      <div class="miembro">
+        <img src="j.jpg" alt="Juancarlos Castillo">
+        <h3>Director</h3>
+        <p>Juan Carlos Castillo</p>
+      </div>
+      <div class="miembro">
+        <img src="a.jpg" alt="Alejandra Rodas">
+        <h3>Secretaria</h3>
+        <p>Alejandra Rodas</p>
+      </div>
+      <div class="miembro">
+        <img src="g.jpg" alt="Geomar Pavon">
+        <h3>Psicóloga </h3>
+        <p>Geomar Pavon</p>
+      </div>
+      <div class="miembro">
+        <img src="directivo5.jpg" alt="Nombre del directivo 5">
+        <h3>Daniel Barrientos</h3>
+        <p>Secretario</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Instituto Dionisio de Herrera – Creciendo contigo.</p>
+    <div>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // Carrusel
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: { delay: 3500 },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    // Header que desaparece al bajar
+    let lastScrollTop = 0;
+    const header = document.getElementById("mainHeader");
+
+    window.addEventListener("scroll", () => {
+      let currentScroll = window.scrollY;
+      if (currentScroll > lastScrollTop && currentScroll > 100) {
+        header.classList.add("hide"); // bajando
+      } else {
+        header.classList.remove("hide"); // subiendo
+      }
+      lastScrollTop = currentScroll;
+    });
+
+    // Inicializar animaciones AOS
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>

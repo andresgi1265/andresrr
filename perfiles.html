@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil de Carreras - Instituto Dionisio de Herrera</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #660000, #330000);
+      color: #fff;
+    }
+
+    header {
+      background-color: #440000;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+      color: #ffcc66;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc66;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+      color: #ffcc66;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .carreras {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 50px;
+    }
+
+    .card {
+      background: #550000;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: #ffcc66;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #f0f0f0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #220000;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+      }
+      nav {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Instituto Dionisio de Herrera</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Historia.html">Historia</a>
+      <a href="Actividades.html">Actividades</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Perfil de Carreras</h2>
+    <p>Descubre las carreras que ofrece nuestro instituto, diseñadas para desarrollar tus talentos, habilidades y prepararte para un futuro exitoso.</p>
+  </section>
+
+  <section class="carreras">
+    <div class="card">
+      <h3>Bachillerato en Ciencias y Humanidades</h3>
+      <p>Formación integral para quienes buscan continuar estudios universitarios en áreas sociales, científicas o humanísticas.</p>
+    </div>
+
+    <div class="card">
+      <h3>Bachillerato Técnico en Informática</h3>
+      <p>Enfocado en el uso de tecnologías digitales, programación, redes y desarrollo de software para el mundo moderno.</p>
+    </div>
+
+    <div class="card">
+      <h3>Bachillerato Técnico en Contaduría y Finanzas</h3>
+      <p>Ideal para estudiantes interesados en la administración, contabilidad, y la gestión económica de empresas e instituciones.</p>
+    </div>
+
+    <div class="card">
+      <h3>Bachillerato Técnico en Turismo</h3>
+      <p>Desarrolla habilidades en atención al cliente, planificación turística y promoción de destinos culturales y naturales.</p>
+    </div>
+
+    <div class="card">
+      <h3>Bachillerato Técnico en Administración de Empresas</h3>
+      <p>Proporciona conocimientos sobre liderazgo, emprendimiento y gestión eficiente de recursos empresariales.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Instituto Dionisio de Herrera - Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
