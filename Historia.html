@@ -1,254 +1,266 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Historia - Instituto Dionisio de Herrera</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia - C.E.M.N.G. Dionisio de Herrera</title>
+
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ======= ESTILOS BASE ======= */
+    /* -------------------- GLOBAL -------------------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Quicksand', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #660000, #330000, #000000);
+      background: #1c1c1c;
       color: #fff;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ======= HEADER ======= */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* -------------------- HEADER -------------------- */
     header {
-      background: rgba(0, 0, 0, 0.9);
-      padding: 12px 20px;
+      background: #000;
+      padding: 15px 25px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+      transition: top 0.4s ease-in-out;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 10px;
-      flex-wrap: nowrap;
+      gap: 12px;
     }
 
     header img {
       height: 55px;
-      width: auto;
       border-radius: 8px;
-      object-fit: contain;
     }
 
     header h1 {
-      font-size: 1.2rem;
-      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
       font-weight: 600;
-      line-height: 1.2;
+      color: #fff;
     }
 
-    /* ======= NAV ======= */
     nav ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
-      gap: 20px;
+      gap: 25px;
     }
 
     nav ul li a {
-      color: #fff;
-      text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.2s;
     }
 
     nav ul li a:hover {
-      color: #ff9999;
+      color: #ff4d4d;
+      transform: scale(1.05);
     }
 
-    /* ======= BOTÓN HAMBURGUESA ======= */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      cursor: pointer;
-      width: 30px;
-      height: 24px;
-      gap: 5px;
-    }
-
-    .menu-toggle span {
-      background: #fff;
-      height: 3px;
-      width: 100%;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-
-    /* ======= HERO ======= */
+    /* -------------------- HERO -------------------- */
     .hero {
-      padding: 70px 20px;
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url("https://upload.wikimedia.org/wikipedia/commons/3/36/School_building.jpg") center/cover no-repeat;
       text-align: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,0.7)),
-                  url("https://upload.wikimedia.org/wikipedia/commons/3/36/School_building.jpg") center/cover no-repeat;
-      color: white;
+      padding: 80px 20px;
     }
 
     .hero h1 {
-      font-size: 2.3rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
       margin-bottom: 15px;
+      color: #ff4d4d;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
     }
 
     .hero p {
-      font-size: 1.1rem;
-      color: #ddd;
+      font-size: 1.2rem;
+      color: #fff;
     }
 
     .hero-explore {
-      margin-top: 25px;
-    }
-
-    .hero-explore h2 {
-      margin-bottom: 10px;
+      margin-top: 30px;
     }
 
     .hero-explore a {
-      color: #ffbbbb;
-      text-decoration: underline;
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 10px 22px;
+      border-radius: 30px;
+      background-color: #600000;
+      color: #fff;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
     }
 
-    /* ======= CONTENEDOR ======= */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-      width: 100%;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
-      border-radius: 18px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-      padding: 25px;
-      margin-bottom: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .card h2 {
-      color: #ff5555;
-      font-family: "Georgia", serif;
-      margin-top: 0;
-      font-size: 1.6rem;
-    }
-
-    /* ======= IMÁGENES ======= */
-    .img-wrap {
-      width: 100%;
-      overflow: hidden;
-      border-radius: 12px;
-      background: #111;
-      margin-bottom: 15px;
-    }
-
-    .img-wrap img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .img-wrap img:hover {
+    .hero-explore a:hover {
+      background-color: #ff4d4d;
       transform: scale(1.05);
     }
 
+    /* -------------------- CONTENIDO -------------------- */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 50px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    }
+
+    .card:nth-child(even) {
+      flex-direction: row-reverse;
+      background-color: #fff;
+      color: #111;
+    }
+
+    .card:nth-child(odd) {
+      background-color: #111;
+      color: #fff;
+    }
+
+    .card .img-wrap {
+      flex: 1 1 300px;
+      min-width: 300px;
+      overflow: hidden;
+    }
+
+    .card .img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .card .img-wrap img:hover {
+      transform: scale(1.05);
+    }
+
+    .card .text {
+      flex: 1 1 300px;
+      min-width: 280px;
+      padding: 25px;
+    }
+
+    .card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: inherit;
+    }
+
+    .card p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: inherit;
+    }
+
+    /* -------------------- CARD DEL PROCER (ROJA) -------------------- */
+    #procer {
+      background-color: #600000;
+      color: #fff;
+    }
+
+    #procer .text h2 {
+      color: #ff9999;
+    }
+
+    #procer .text p {
+      color: #ffe5e5;
+    }
+
+    /* -------------------- FOOTER -------------------- */
     footer {
       text-align: center;
-      color: #ccc;
-      font-size: 0.9rem;
-      padding: 25px 0;
+      padding: 25px;
+      background-color: #000;
+      color: #fff;
+      font-size: 0.95rem;
       border-top: 1px solid rgba(255,255,255,0.2);
     }
 
-    /* ======= RESPONSIVIDAD ======= */
-    @media (max-width: 768px) {
+    /* -------------------- RESPONSIVE -------------------- */
+    @media (max-width: 1024px) {
+      .card {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .card .text {
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
       header {
         flex-direction: column;
         text-align: center;
-        padding: 12px 10px;
-      }
-
-      .logo-container {
-        justify-content: center;
-        flex-direction: column;
-      }
-
-      header img {
-        height: 70px;
-      }
-
-      header h1 {
-        font-size: 1.1rem;
-        margin-top: 5px;
-      }
-
-      .menu-toggle {
-        display: flex;
-        position: absolute;
-        top: 18px;
-        right: 18px;
       }
 
       nav ul {
         flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        width: 100%;
-        display: none;
+        gap: 15px;
         margin-top: 10px;
-        padding: 10px 0;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      .hero {
-        padding: 50px 10px;
-        background-position: center;
       }
 
       .hero h1 {
-        font-size: 1.9rem;
+        font-size: 1.6rem;
       }
 
       .hero p {
         font-size: 1rem;
       }
 
-      .container {
-        padding: 15px 10px;
-        width: 100%;
-      }
-
-      .card {
-        padding: 18px 15px;
-        border-radius: 14px;
-      }
-
       .card h2 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
       }
 
-      .img-wrap img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
+      .card p {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -256,22 +268,19 @@
 <body>
 
   <!-- HEADER -->
-  <header>
+  <header id="mainHeader">
     <div class="logo-container">
       <img src="Logo.png" alt="Logo del Instituto">
-      <h1>Instituto Dionisio de Herrera</h1>
+      <h1>C.E.M.N.G. Dionisio de Herrera</h1>
     </div>
     <nav>
-      <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul id="menuList">
+      <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="Historia.html">Nuestra Historia</a></li>
         <li><a href="Actividades.html">Actividades</a></li>
         <li><a href="perfiles.html">Carreras</a></li>
+        <li><a href="contacto.html">Contactanos</a></li>
+        <li><a href="galeria.html">Galeria de Actividades</a></li>
       </ul>
     </nav>
   </header>
@@ -281,47 +290,58 @@
     <h1>Historia del Instituto Dionisio de Herrera</h1>
     <p>Conoce la trayectoria del instituto y de su prócer homónimo.</p>
     <div class="hero-explore">
-      <h2>Explorar:</h2>
-      <a href="#instituto">Historia del Instituto</a> | 
+      <a href="#instituto">Historia del Instituto</a>
       <a href="#procer">Historia del Prócer</a>
     </div>
   </section>
 
   <!-- CONTENIDO -->
   <div class="container">
+    <!-- Historia del Instituto -->
     <section class="card" id="instituto">
-      <h2>Historia del Instituto Dionisio de Herrera</h2>
       <div class="img-wrap">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/School_parade.jpg"
-             alt="Instituto Dionisio de Herrera">
+        <img src="grado.jpg" alt="Instituto Dionisio de Herrera">
       </div>
-      <p>El Instituto DIONISIO DE HERRERA fue fundado el 09 de octubre de 1993, con la misión de ofrecer educación de calidad, basada en disciplina, valores morales, espirituales y culturales.</p>
-      <p>Con más de 20 años de funcionamiento, el Instituto Dionisio de Herrera ha formado hombres y mujeres que contribuyen al desarrollo del país. Nuestro compromiso es seguir ofreciendo excelencia educativa.</p>
+      <div class="text">
+        <h2>Historia del Instituto Dionisio de Herrera</h2>
+        <p>El Instituto DIONISIO DE HERRERA fue fundado el 09 de octubre de 1993, con la misión de ofrecer educación de calidad, basada en disciplina, valores morales, espirituales y culturales.</p>
+        <p>Con más de 20 años de funcionamiento, el Instituto Dionisio de Herrera ha formado hombres y mujeres que contribuyen al desarrollo del país. Nuestro compromiso es seguir ofreciendo excelencia educativa.</p>
+      </div>
     </section>
 
+    <!-- Historia del Prócer -->
     <section class="card" id="procer">
-      <h2>Historia del Prócer: Dionisio de Herrera</h2>
       <div class="img-wrap">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Dionisio_de_Herrera.jpg"
-             alt="Retrato de Dionisio de Herrera">
+        <img src="D.jpg" alt="Retrato de Dionisio de Herrera">
       </div>
-      <p>José Dionisio de la Trinidad de Herrera y Díaz del Valle (9 de octubre de 1781, Choluteca, Honduras – 13 de junio de 1850) fue un abogado y político hondureño, representante del liberalismo y uno de los centroamericanos más ilustrados de sus tiempos.</p>
-      <p>Fue el autor de la primera Constitución de Honduras (1825) y el primer jefe supremo del Estado de Honduras en 1824. Su gobierno fue progresista, organizó el estado hondureño y fomentó la agricultura, la industria y la inmigración. Por ello se le considera el “Padre de la Patria”.</p>
+      <div class="text">
+        <h2>Historia del Prócer: Dionisio de Herrera</h2>
+        <p>José Dionisio de la Trinidad de Herrera y Díaz del Valle (9 de octubre de 1781, Choluteca, Honduras-13 de junio de 1850), actualmente conocido simplemente como Dionisio de Herrera, fue un abogado y político hondureño, representante del liberalismo y uno de los centroamericanos más ilustrados de sus tiempos.</p>
+        <p>Autor de la primera Constitución de Honduras (1825) y primer jefe supremo del Estado de Honduras en 1824. Su gobierno fue progresista, fomentó la agricultura, la industria y la inmigración. Por ello se le considera el “Padre de la Patria”.</p>
+      </div>
     </section>
-
-    <footer>
-      © 2025 Instituto Dionisio de Herrera
-    </footer>
   </div>
 
-  <!-- SCRIPT -->
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const menuList = document.getElementById("menuList");
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Instituto Dionisio de Herrera
+  </footer>
 
-    menuToggle.addEventListener("click", () => {
-      menuList.classList.toggle("show");
+  <!-- SCRIPT: Ocultar barra al bajar -->
+  <script>
+    let lastScroll = 0;
+    const header = document.getElementById('mainHeader');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll && currentScroll > 80) {
+        header.style.top = '-100px'; // desaparece al bajar
+      } else {
+        header.style.top = '0'; // reaparece al subir
+      }
+      lastScroll = currentScroll;
     });
   </script>
+
 </body>
 </html>

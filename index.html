@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Instituto Dionisio de Herrera</title>
+  <title>C.E.M.N.G. Dionisio de Herrera</title>
 
   <!-- SEO -->
-  <meta name="description" content="Instituto Dionisio de Herrera - Formamos líderes con valores y compromiso. Educación integral, atención personalizada y crecimiento humano.">
+  <meta name="description" content="El instituto Dionisio de Herrera - Formamos líderes con valores y compromiso. Educación integral, atención personalizada y crecimiento humano.">
   <meta name="keywords" content="Instituto, Educación, Honduras, Bachillerato, Secundaria, Valores, Colegio">
 
   <!-- Fuentes -->
@@ -18,7 +18,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-  <!-- AOS (animaciones al hacer scroll) -->
+  <!-- AOS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
   <style>
@@ -227,8 +227,9 @@
     }
 
     .directiva-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 30px;
       max-width: 1100px;
       margin: auto;
@@ -239,6 +240,7 @@
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      width: 220px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
@@ -289,6 +291,36 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+      }
+
+      header img {
+        max-height: 45px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.1em;
+      }
+
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.3);
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 8px 0;
+        width: 100%;
+        font-size: 1em;
+      }
+
       .presentation {
         flex-direction: column;
         text-align: center;
@@ -307,6 +339,10 @@
         font-size: 1.4em;
         padding: 12px 18px;
       }
+
+      .miembro img {
+        height: 180px;
+      }
     }
   </style>
 </head>
@@ -316,7 +352,7 @@
   <header id="mainHeader">
     <div style="display: flex; align-items: center;">
       <img src="Logo.png" alt="Logo del instituto" />
-      <h1>Instituto Dionisio de Herrera</h1>
+      <h1>C.E.M.N.G. Dionisio de Herrera</h1>
     </div>
     <nav>
       <ul>
@@ -324,6 +360,9 @@
         <li><a href="Historia.html">Nuestra Historia</a></li>
         <li><a href="Actividades.html">Actividades</a></li>
         <li><a href="perfiles.html">Carreras</a></li>
+        <li><a href="contacto.html">Contactanos</a></li>
+        <li><a href="galeria.html">Galeria de Actividades</a></li>
+
       </ul>
     </nav>
   </header>
@@ -350,17 +389,11 @@
 
   <!-- PRESENTACIÓN -->
   <section class="presentation" data-aos="fade-up">
-    <img src="presentacion.jpg" alt="imagen presentación" />
+    <img src="colegio.jpg" alt="imagen presentación" />
     <div>
       <h2>¡Bienvenidos!</h2>
-      <p>
-        En el Instituto Dionisio de Herrera creemos que la educación es más que aprender materias: 
-        es crecer como persona, descubrir talentos y construir un futuro lleno de oportunidades.
-      </p>
-      <p>
-        Nos inspira el legado de Dionisio de Herrera, un líder visionario en la historia de Honduras. 
-        Por eso ofrecemos un ambiente cálido, cercano y con un compromiso profundo por el aprendizaje integral.
-      </p>
+      <p>En el Instituto Dionisio de Herrera creemos que la educación es más que aprender materias: es crecer como persona, descubrir talentos y construir un futuro lleno de oportunidades.</p>
+      <p>Nos inspira el legado de Dionisio de Herrera, un líder visionario en la historia de Honduras. Por eso ofrecemos un ambiente cálido, cercano y con un compromiso profundo por el aprendizaje integral.</p>
     </div>
   </section>
 
@@ -397,6 +430,13 @@
         <h3>Aulas de Vanguardia</h3>
         <p>Salones cómodos y equipados que motivan a aprender con entusiasmo.</p>
       </div>
+
+      <!-- NUEVO SERVICIO -->
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-running"></i></div>
+        <h3>Actividades Extracurriculares</h3>
+        <p>Fomentamos el arte, el deporte y la creatividad a través de talleres, clubes y competencias estudiantiles.</p>
+      </div>
     </div>
   </section>
 
@@ -425,9 +465,9 @@
         <p>Geomar Pavon</p>
       </div>
       <div class="miembro">
-        <img src="directivo5.jpg" alt="Nombre del directivo 5">
-        <h3>Daniel Barrientos</h3>
-        <p>Secretario</p>
+        <img src="directivo5.jpg" alt="Daniel Barrientos">
+        <h3>Secretario</h3>
+        <p>Daniel Barrientos</p>
       </div>
     </div>
   </section>
@@ -458,21 +498,20 @@
       },
     });
 
-    // Header que desaparece al bajar
+    // Header oculto al hacer scroll
     let lastScrollTop = 0;
     const header = document.getElementById("mainHeader");
-
     window.addEventListener("scroll", () => {
       let currentScroll = window.scrollY;
       if (currentScroll > lastScrollTop && currentScroll > 100) {
-        header.classList.add("hide"); // bajando
+        header.classList.add("hide");
       } else {
-        header.classList.remove("hide"); // subiendo
+        header.classList.remove("hide");
       }
       lastScrollTop = currentScroll;
     });
 
-    // Inicializar animaciones AOS
+    // Animaciones
     AOS.init({ duration: 1000, once: true });
   </script>
 </body>

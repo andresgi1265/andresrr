@@ -1,156 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfil de Carreras - Instituto Dionisio de Herrera</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #660000, #330000);
-      color: #fff;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>C.E.M.N.G. Dionisio de Herrera</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #660000, #330000, #000000);
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-    header {
-      background-color: #440000;
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  header {
+    background: rgba(0,0,0,0.7);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    transition: transform 0.4s ease, background 0.3s;
+  }
 
-    header h1 {
-      font-size: 22px;
-      margin: 0;
-      color: #ffcc66;
-    }
+  header.hide { transform: translateY(-100%); }
+  .logo-container { display:flex; align-items:center; gap:10px; }
+  header img { height:55px; border-radius:8px; }
+  header h1 { font-size:1.3rem; margin:0; font-weight:600; }
+  nav ul { list-style:none; margin:0; padding:0; display:flex; gap:25px; }
+  nav ul li a { color:#fff; text-decoration:none; font-weight:600; transition: color 0.3s; }
+  nav ul li a:hover { color:#ff5555; }
+  .menu-toggle { display:none; flex-direction:column; justify-content:center; cursor:pointer; width:30px; height:24px; gap:5px; }
+  .menu-toggle span { background:#fff; height:3px; width:100%; border-radius:5px; transition:all 0.3s ease; }
 
-    nav a {
-      color: #fff;
-      margin-left: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+  section { padding: 60px 20px; }
+  .section-title { font-size:2.2rem; color:#ff5555; text-transform:uppercase; text-align:center; margin-bottom:40px; }
 
-    nav a:hover {
-      color: #ffcc66;
-    }
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: rgba(0, 0, 0, 0.4);
-    }
+  .card {
+    background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+    border-radius: 20px;
+    padding:30px 25px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+  }
 
-    .hero h2 {
-      font-size: 38px;
-      margin-bottom: 10px;
-      color: #ffcc66;
-    }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255,85,85,0.4);
+  }
 
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+  .card h3 { color:#ff5555; margin-bottom:15px; font-size:1.5rem; }
+  .card ul { text-align:left; margin:10px auto 0 auto; padding-left:20px; }
 
-    .carreras {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding: 50px;
-    }
+  footer {
+    text-align:center;
+    color:#ccc;
+    font-size:0.9rem;
+    padding:25px 0;
+    border-top:1px solid rgba(255,255,255,0.2);
+  }
 
-    .card {
-      background: #550000;
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card h3 {
-      color: #ffcc66;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 15px;
-      color: #f0f0f0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #220000;
-      color: #aaa;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-      }
-      nav {
-        margin-top: 10px;
-      }
-    }
-  </style>
+  @media(max-width:768px){
+    header { flex-direction:column; text-align:center; padding:12px 10px; }
+    .logo-container{ flex-direction:column; justify-content:center; }
+    header img{ height:70px; }
+    header h1{ font-size:1.2rem; margin-top:5px; }
+    .menu-toggle{ display:flex; position:absolute; top:18px; right:18px; }
+    nav ul{ flex-direction:column; background:rgba(0,0,0,0.95); width:100%; display:none; margin-top:10px; padding:10px 0; }
+    nav ul.show{ display:flex; }
+    .cards-container { grid-template-columns: 1fr; gap:20px; }
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Instituto Dionisio de Herrera</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="Historia.html">Historia</a>
-      <a href="Actividades.html">Actividades</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Perfil de Carreras</h2>
-    <p>Descubre las carreras que ofrece nuestro instituto, diseñadas para desarrollar tus talentos, habilidades y prepararte para un futuro exitoso.</p>
-  </section>
-
-  <section class="carreras">
-    <div class="card">
-      <h3>Bachillerato en Ciencias y Humanidades</h3>
-      <p>Formación integral para quienes buscan continuar estudios universitarios en áreas sociales, científicas o humanísticas.</p>
+<header>
+  <div class="logo-container">
+    <img src="Logo.png" alt="Logo del Instituto">
+    <h1>C.E.M.N.G. Dionisio de Herrera</h1>
+  </div>
+  <nav>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
     </div>
+    <ul id="menuList">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Historia.html">Nuestra Historia</a></li>
+      <li><a href="Actividades.html">Actividades</a></li>
+      <li><a href="perfiles.html">Carreras</a></li>
+      <li><a href="contacto.html">Contactanos</a></li>
+      <li><a href="galeria.html">Galeria de Actividades</a></li>
+    </ul>
+  </nav>
+</header>
 
+<!-- CICLO -->
+<section>
+  <div class="section-title">Ciclo</div>
+  <div class="cards-container">
+    <div class="card">Séptimo Grado</div>
+    <div class="card">Octavo Grado</div>
+    <div class="card">Noveno Grado</div>
+    <div class="card">Décimo Grado BTP</div>
+  </div>
+</section>
+
+<!-- CARRERAS -->
+<section>
+  <div class="section-title">Carreras</div>
+  <div class="cards-container">
     <div class="card">
-      <h3>Bachillerato Técnico en Informática</h3>
-      <p>Enfocado en el uso de tecnologías digitales, programación, redes y desarrollo de software para el mundo moderno.</p>
+      <h3>Informática</h3>
+      <p>Formación completa en programación, redes y tecnología moderna.</p>
+      <ul>
+        <li>Programación en múltiples lenguajes.</li>
+        <li>Administración de redes y servidores.</li>
+        <li>Seguridad informática y protección de datos.</li>
+        <li>Desarrollo de proyectos y prácticas profesionales.</li>
+      </ul>
     </div>
-
     <div class="card">
-      <h3>Bachillerato Técnico en Contaduría y Finanzas</h3>
-      <p>Ideal para estudiantes interesados en la administración, contabilidad, y la gestión económica de empresas e instituciones.</p>
+      <h3>Contabilidad</h3>
+      <p>Capacitación integral en finanzas y gestión empresarial.</p>
+      <ul>
+        <li>Contabilidad financiera y administrativa.</li>
+        <li>Auditoría y control interno.</li>
+        <li>Gestión tributaria y fiscal.</li>
+        <li>Simulación de proyectos y software contable.</li>
+      </ul>
     </div>
-
     <div class="card">
-      <h3>Bachillerato Técnico en Turismo</h3>
-      <p>Desarrolla habilidades en atención al cliente, planificación turística y promoción de destinos culturales y naturales.</p>
+      <h3>Humanidades</h3>
+      <p>Desarrollo de competencias culturales y pensamiento crítico.</p>
+      <ul>
+        <li>Literatura, historia, filosofía y artes.</li>
+        <li>Comunicación oral y escrita.</li>
+        <li>Proyectos culturales y participación comunitaria.</li>
+        <li>Fomento del pensamiento ético y creativo.</li>
+      </ul>
     </div>
+  </div>
+</section>
 
+<!-- PERFIL DEL ESTUDIANTE -->
+<section>
+  <div class="section-title">Perfil del Estudiante</div>
+  <div class="cards-container">
     <div class="card">
-      <h3>Bachillerato Técnico en Administración de Empresas</h3>
-      <p>Proporciona conocimientos sobre liderazgo, emprendimiento y gestión eficiente de recursos empresariales.</p>
+      <h3>Séptimo Grado</h3>
+      <ul>
+        <li>Curiosidad intelectual y respeto a normas.</li>
+        <li>Habilidades básicas de lectura y escritura.</li>
+      </ul>
     </div>
-  </section>
+    <div class="card">
+      <h3>Octavo Grado</h3>
+      <ul>
+        <li>Disciplina y responsabilidad en tareas.</li>
+        <li>Trabajo en equipo y razonamiento lógico.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Noveno Grado</h3>
+      <ul>
+        <li>Autonomía en el aprendizaje.</li>
+        <li>Capacidad de investigación y análisis.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Décimo Grado BTP</h3>
+      <ul>
+        <li>Habilidades técnicas avanzadas.</li>
+        <li>Preparación para estudios superiores o trabajo.</li>
+      </ul>
+    </div>
+  </div>
 
-  <footer>
-    © 2025 Instituto Dionisio de Herrera - Todos los derechos reservados
-  </footer>
+  <div class="cards-container" style="margin-top:30px;">
+    <div class="card">
+      <h3>Informática</h3>
+      <ul>
+        <li>Interés en tecnología y programación.</li>
+        <li>Capacidad de resolución de problemas.</li>
+        <li>Trabajo en proyectos colaborativos.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Contabilidad</h3>
+      <ul>
+        <li>Interés por finanzas y organización.</li>
+        <li>Responsabilidad y atención al detalle.</li>
+        <li>Habilidad para trabajar con números y análisis de información.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Humanidades</h3>
+      <ul>
+        <li>Curiosidad cultural y artística.</li>
+        <li>Capacidad de análisis crítico y comunicación.</li>
+        <li>Participación en debates y proyectos creativos.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Instituto Dionisio de Herrera
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const menuList = document.getElementById("menuList");
+menuToggle.addEventListener("click", ()=>{ menuList.classList.toggle("show"); });
+
+let lastScrollTop = 0;
+const header = document.querySelector("header");
+window.addEventListener("scroll", ()=>{
+  let currentScroll = window.scrollY;
+  if(currentScroll > lastScrollTop && currentScroll > 50){ header.classList.add("hide"); }
+  else{ header.classList.remove("hide"); }
+  lastScrollTop = currentScroll;
+});
+</script>
 
 </body>
 </html>

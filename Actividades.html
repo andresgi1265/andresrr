@@ -3,34 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Actividades - Instituto Dionisio de Herrera</title>
+  <title>Actividades - C.E.M.N.G. Dionisio de Herrera</title>
 
-  <!-- Fuente Google -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
-    body {
-      font-family: 'Quicksand', sans-serif;
+    /* -------------------- GLOBAL -------------------- */
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: linear-gradient(135deg, #5c0a0a, #a82a2a, #1c1c1c);
-      color: #fff;
-      line-height: 1.6;
+      padding: 0;
     }
 
-    /* 🔹 BARRA SUPERIOR */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #1c1c1c;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* -------------------- HEADER -------------------- */
     header {
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.95);
       padding: 15px 25px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      position: sticky;
+      align-items: center;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: top 0.4s ease-in-out, background 0.4s;
+      backdrop-filter: blur(5px);
+    }
+
+    header.hide {
+      top: -100px; /* Oculta hacia arriba */
     }
 
     header img {
@@ -39,144 +59,141 @@
     }
 
     header h1 {
-      margin: 0;
       font-size: 1.3em;
       font-weight: 600;
       letter-spacing: 1px;
+      color: #fff;
     }
 
     nav ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
-      gap: 20px;
+      gap: 25px;
     }
 
     nav ul li a {
-      text-decoration: none;
-      color: #fff;
       font-weight: 600;
       transition: color 0.3s, transform 0.2s;
     }
 
     nav ul li a:hover {
-      color: #ffd6d6;
+      color: #ff4d4d;
       transform: scale(1.05);
     }
 
-    /* 🔹 ENCABEZADO DE PÁGINA */
+    /* -------------------- TÍTULO -------------------- */
     .page-title {
       text-align: center;
-      background-color: rgba(255,255,255,0.95);
-      color: #600000;
-      padding: 30px 10px;
-      font-size: 2em;
-      font-weight: bold;
-      margin: 0;
+      background-color: #600000;
+      color: #fff;
+      padding: 100px 10px 40px;
+      font-size: 2.2em;
+      font-weight: 700;
+      letter-spacing: 1px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
 
-    /* 🔹 SECCIONES DE ACTIVIDADES */
+    /* -------------------- SECCIONES -------------------- */
     .container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       padding: 60px 10%;
-      background-color: rgba(255,255,255,0.95);
-      color: #111;
-      border-bottom: 1px solid #ddd;
+      gap: 40px;
+      transition: transform 0.3s, background-color 0.6s ease;
     }
 
-    /* Alternar orden */
+    .container:nth-child(odd) {
+      background-color: #2b0000;
+    }
+
     .container:nth-child(even) {
-      flex-direction: row-reverse;
-      background-color: #f7f7f7;
+      background-color: #fff;
+      color: #111;
     }
 
     .container img {
       width: 480px;
       max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .container img:hover {
+      transform: scale(1.05);
     }
 
     .text {
       flex: 1;
-      padding: 20px 40px;
-      min-width: 300px;
+      min-width: 280px;
+      padding: 20px 30px;
     }
 
     .text h2 {
       font-size: 2em;
-      color: #600000;
       margin-bottom: 15px;
+      color: inherit;
     }
 
     .text p {
       font-size: 1.05em;
-      color: #333;
       margin-bottom: 20px;
+      color: inherit;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      color: #fff;
-      background-color: #600000;
-      padding: 10px 18px;
-      border-radius: 25px;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #800000;
-    }
-
-    .btn span {
-      margin-left: 8px;
-      font-weight: bold;
-    }
-
-    /* 🔹 FOOTER */
+    /* -------------------- FOOTER -------------------- */
     footer {
       text-align: center;
       padding: 25px;
-      background: rgba(0,0,0,0.9);
+      background-color: #000;
       color: #fff;
       font-size: 0.95em;
-      margin-top: 50px;
     }
 
-    /* 🔹 RESPONSIVO */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    /* -------------------- RESPONSIVE -------------------- */
+    @media (max-width: 1024px) {
       .container {
         flex-direction: column !important;
         text-align: center;
+        padding: 50px 5%;
       }
-      .text {
-        padding: 20px;
+
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text h2 {
+        font-size: 1.5em;
+      }
+
+      .text p {
+        font-size: 0.95em;
+      }
+
+      header img {
+        max-height: 45px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔹 BARRA SUPERIOR -->
-  <header>
+  <!-- HEADER -->
+  <header id="header">
     <div style="display: flex; align-items: center;">
-      <img src="Logo.png" alt="Logo del instituto" />
-      <h1>Instituto Dionisio de Herrera</h1>
+      <img src="Logo.png" alt="Logo del Instituto">
+      <h1>C.E.M.N.G. Dionisio de Herrera</h1>
     </div>
     <nav>
       <ul>
@@ -184,106 +201,99 @@
         <li><a href="Historia.html">Nuestra Historia</a></li>
         <li><a href="Actividades.html">Actividades</a></li>
         <li><a href="perfiles.html">Carreras</a></li>
+        <li><a href="contacto.html">Contactanos</a></li>
+        <li><a href="galeria.html">Galería de Actividades</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- 🔹 TÍTULO PRINCIPAL -->
+  <!-- TÍTULO PRINCIPAL -->
   <div class="page-title">Actividades Institucionales</div>
 
-  <!-- 🔹 SECCIONES -->
+  <!-- SECCIONES -->
   <section class="container">
-    <img src="1.jpg">
+    <img src="1.jpg" alt="Viajes Recreativos">
     <div class="text">
       <h2>Viajes Recreativos</h2>
-      <p>
-        ¡Fomentamos la recreacion y diversion de nuestros alumnos haciendo paseos a parques acuaticos!.
-      </p>
-      
+      <p>¡Fomentamos la recreación y diversión de nuestros alumnos con paseos a parques acuáticos!</p>
     </div>
   </section>
 
   <section class="container">
-    <img src="8.jpg">
+    <img src="8.jpg" alt="Día de Color">
     <div class="text">
-      <h2>Dias de color</h2>
-      <p>
-        Más que una simple actividad, el Día de Color busca fortalecer la unión y la identidad institucional llenando el instituto de energía, risas y compañerismo..
-      </p>
-      
+      <h2>Días de Color</h2>
+      <p>Más que una actividad, el Día de Color fortalece la unión institucional llenando el instituto de energía, risas y compañerismo.</p>
     </div>
   </section>
 
   <section class="container">
-    <img src="3.jpg">
+    <img src="3.jpg" alt="Día de Pijama">
     <div class="text">
-      <h2>Dia de Pijama</h2>
-      <p>
-        El Día de Pijama es una actividad llena de diversión, creatividad y descanso para el alma.
-En esta jornada especial, los estudiantes y docentes dejan atrás el uniforme por un día y vienen al instituto con sus pijamas más cómodas y originales, transformando el ambiente escolar en un espacio relajado, alegre y lleno de sonrisas.
-      </p>
-      
+      <h2>Día de Pijama</h2>
+      <p>Los estudiantes y docentes dejan atrás el uniforme y vienen al instituto con pijamas cómodas y originales, creando un ambiente relajado y alegre.</p>
     </div>
   </section>
 
   <section class="container">
-    <img src="4.jpg">
+    <img src="4.jpg" alt="Trajes de Verano">
     <div class="text">
       <h2>Trajes de Verano</h2>
-      <p>
-        El Día de Trajes de Verano es una de las actividades más coloridas y esperadas del año.
-En esta jornada, los estudiantes y docentes dejan volar su creatividad al vestir atuendos veraniegos llenos de estilo, frescura y alegría, transformando el instituto en una verdadera fiesta tropical.
-      </p>
-      
+      <p>Los estudiantes y docentes visten atuendos veraniegos llenos de estilo y alegría, transformando el instituto en una verdadera fiesta tropical.</p>
     </div>
   </section>
 
   <section class="container">
-    <img src="5.jpg">
+    <img src="5.jpg" alt="Participación en Shows de TV">
     <div class="text">
-      <h2>Participacion en shows de TV</h2>
-      <p>
-       La participación en shows de televisión es una experiencia emocionante que permite a nuestros estudiantes mostrar su talento, creatividad y carisma más allá de las aulas.
-      </p>
-     
+      <h2>Participación en Shows de TV</h2>
+      <p>Una experiencia emocionante que permite a nuestros estudiantes mostrar su talento, creatividad y carisma más allá de las aulas.</p>
     </div>
   </section>
 
   <section class="container">
-    <img src="6.jpg">
+    <img src="6.jpg" alt="Día Mundial del Síndrome de Down">
     <div class="text">
-      <h2>Dia Mundial del Sindrome de Down</h2>
-      <p>
-        Se realiza la actividad de los calcetines locos cada 21 de marzo en muestra de celebrar la diversidad y promover la inclusión.
-      </p>
-      
+      <h2>Día Mundial del Síndrome de Down</h2>
+      <p>Se celebra con la actividad de los calcetines locos cada 21 de marzo, promoviendo la diversidad y la inclusión.</p>
     </div>
   </section>
 
   <section class="container">
-    <img src="7.jpg">
+    <img src="7.jpg" alt="Concurso del Sombrero Loco">
     <div class="text">
       <h2>Concurso del Sombrero Loco</h2>
-      <p>
-        Este dia todos los estudiantes del instituto participan en una exhibición de sombreros locos donde los pueden decorar de la forma que ellos quieran, al final se escogen los tres mejores sombreros.
-      </p>
+      <p>Los estudiantes decoran sus sombreros de forma creativa y se escogen los tres mejores al final del concurso.</p>
     </div>
   </section>
 
   <section class="container">
-    <img src="2.jpg">
+    <img src="2.jpg" alt="Feria Vocacional">
     <div class="text">
       <h2>Feria Vocacional</h2>
-      <p>
-        En este dia los alumnos de ultimo año y decimo grado nos acompañan a la Feria Vocacional realizada en la UNAH, donde podran recibir diferentes charlas de las carreras que podran escoger una de ellas para estudiar en el futuro.
-      </p>
-      
+      <p>Alumnos de último año y décimo grado participan en la Feria Vocacional de la UNAH para recibir charlas de diferentes carreras y orientar su futuro profesional.</p>
     </div>
   </section>
 
-  <!-- 🔹 FOOTER -->
+  <!-- FOOTER -->
   <footer>
     &copy; 2025 Instituto Dionisio de Herrera – Creciendo contigo.
   </footer>
+
+  <!-- SCRIPT: Ocultar header al hacer scroll -->
+  <script>
+    let lastScrollY = window.scrollY;
+    const header = document.getElementById('header');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY) {
+        header.classList.add('hide');  // Bajando → Ocultar
+      } else {
+        header.classList.remove('hide'); // Subiendo → Mostrar
+      }
+      lastScrollY = window.scrollY;
+    });
+  </script>
+
 </body>
 </html>
